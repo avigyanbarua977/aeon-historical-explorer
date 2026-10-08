@@ -1,0 +1,42 @@
+@keyframes atmosphere-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(22px, -18px, 0); }
+}
+
+@keyframes view-arrive {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes detail-arrive {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes detail-exit {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(6px); }
+}
+
+.event-detail.is-closing { animation: detail-exit .22s ease both; pointer-events: none; }
+
+.history-graph:not([hidden]) { animation: view-arrive .45s cubic-bezier(.2,.7,.2,1) both; }
+.historical-explorer:not([hidden]) { animation: view-arrive .4s cubic-bezier(.2,.7,.2,1) both; }
+.graph-node-core, .graph-edge-line { transition: fill .18s ease, stroke .18s ease, opacity .18s ease; }
+
+.landing.is-leaving .hero-content,
+.landing.is-leaving .site-mark,
+.landing.is-leaving .hero-footnote,
+.landing.is-leaving .hero-index {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity .35s ease, transform .5s ease;
+}
+
+.landing.is-leaving .atmosphere { opacity: 0; transition: opacity .7s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .history-graph:not([hidden]) { animation: none; }
+  .historical-explorer:not([hidden]) { animation: none; }
+  .graph-node-core, .graph-edge-line { transition: none; }
+}

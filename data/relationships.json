@@ -1,0 +1,930 @@
+[
+  {
+    "id": "relationship-0001",
+    "source": {
+      "type": "event",
+      "id": "early-humans"
+    },
+    "target": {
+      "type": "event",
+      "id": "fire"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "early-humans",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0002",
+    "source": {
+      "type": "event",
+      "id": "early-humans"
+    },
+    "target": {
+      "type": "event",
+      "id": "fire"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "fire",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0003",
+    "source": {
+      "type": "event",
+      "id": "homo-sapiens"
+    },
+    "target": {
+      "type": "event",
+      "id": "out-of-africa"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "homo-sapiens",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0004",
+    "source": {
+      "type": "event",
+      "id": "homo-sapiens"
+    },
+    "target": {
+      "type": "event",
+      "id": "out-of-africa"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "out-of-africa",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0005",
+    "source": {
+      "type": "event",
+      "id": "cave-art"
+    },
+    "target": {
+      "type": "event",
+      "id": "homo-sapiens"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "cave-art",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0006",
+    "source": {
+      "type": "event",
+      "id": "agriculture"
+    },
+    "target": {
+      "type": "event",
+      "id": "pottery"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "pottery",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0007",
+    "source": {
+      "type": "event",
+      "id": "pottery"
+    },
+    "target": {
+      "type": "event",
+      "id": "settlements"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "pottery",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0008",
+    "source": {
+      "type": "event",
+      "id": "agriculture"
+    },
+    "target": {
+      "type": "event",
+      "id": "settlements"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "agriculture",
+      "field": "consequences"
+    }
+  },
+  {
+    "id": "relationship-0009",
+    "source": {
+      "type": "event",
+      "id": "agriculture"
+    },
+    "target": {
+      "type": "event",
+      "id": "first-cities"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "agriculture",
+      "field": "consequences"
+    }
+  },
+  {
+    "id": "relationship-0010",
+    "source": {
+      "type": "event",
+      "id": "agriculture"
+    },
+    "target": {
+      "type": "event",
+      "id": "settlements"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "settlements",
+      "field": "causes"
+    }
+  },
+  {
+    "id": "relationship-0011",
+    "source": {
+      "type": "event",
+      "id": "settlements"
+    },
+    "target": {
+      "type": "event",
+      "id": "first-cities"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "settlements",
+      "field": "consequences"
+    }
+  },
+  {
+    "id": "relationship-0012",
+    "source": {
+      "type": "event",
+      "id": "agriculture"
+    },
+    "target": {
+      "type": "event",
+      "id": "first-cities"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "first-cities",
+      "field": "causes"
+    }
+  },
+  {
+    "id": "relationship-0013",
+    "source": {
+      "type": "event",
+      "id": "settlements"
+    },
+    "target": {
+      "type": "event",
+      "id": "first-cities"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "first-cities",
+      "field": "causes"
+    }
+  },
+  {
+    "id": "relationship-0014",
+    "source": {
+      "type": "event",
+      "id": "first-cities"
+    },
+    "target": {
+      "type": "event",
+      "id": "writing"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "first-cities",
+      "field": "consequences"
+    }
+  },
+  {
+    "id": "relationship-0015",
+    "source": {
+      "type": "event",
+      "id": "first-cities"
+    },
+    "target": {
+      "type": "event",
+      "id": "akkadian-empire"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "first-cities",
+      "field": "consequences"
+    }
+  },
+  {
+    "id": "relationship-0016",
+    "source": {
+      "type": "event",
+      "id": "first-cities"
+    },
+    "target": {
+      "type": "event",
+      "id": "writing"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "writing",
+      "field": "causes"
+    }
+  },
+  {
+    "id": "relationship-0017",
+    "source": {
+      "type": "event",
+      "id": "phoenician-alphabet"
+    },
+    "target": {
+      "type": "event",
+      "id": "writing"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "writing",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0018",
+    "source": {
+      "type": "event",
+      "id": "printing-press"
+    },
+    "target": {
+      "type": "event",
+      "id": "writing"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "writing",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0019",
+    "source": {
+      "type": "event",
+      "id": "egypt-unification"
+    },
+    "target": {
+      "type": "event",
+      "id": "pyramids"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "egypt-unification",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0020",
+    "source": {
+      "type": "event",
+      "id": "first-cities"
+    },
+    "target": {
+      "type": "event",
+      "id": "indus-civilization"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "indus-civilization",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0021",
+    "source": {
+      "type": "event",
+      "id": "egypt-unification"
+    },
+    "target": {
+      "type": "event",
+      "id": "pyramids"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "pyramids",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0022",
+    "source": {
+      "type": "event",
+      "id": "pyramids"
+    },
+    "target": {
+      "type": "event",
+      "id": "stonehenge"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "stonehenge",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0023",
+    "source": {
+      "type": "event",
+      "id": "first-cities"
+    },
+    "target": {
+      "type": "event",
+      "id": "akkadian-empire"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "akkadian-empire",
+      "field": "causes"
+    }
+  },
+  {
+    "id": "relationship-0024",
+    "source": {
+      "type": "event",
+      "id": "hammurabi"
+    },
+    "target": {
+      "type": "event",
+      "id": "writing"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "hammurabi",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0025",
+    "source": {
+      "type": "event",
+      "id": "writing"
+    },
+    "target": {
+      "type": "event",
+      "id": "phoenician-alphabet"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "phoenician-alphabet",
+      "field": "causes"
+    }
+  },
+  {
+    "id": "relationship-0026",
+    "source": {
+      "type": "event",
+      "id": "roman-empire"
+    },
+    "target": {
+      "type": "event",
+      "id": "rome-founding"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "rome-founding",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0027",
+    "source": {
+      "type": "event",
+      "id": "athenian-democracy"
+    },
+    "target": {
+      "type": "event",
+      "id": "greek-classical"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "greek-classical",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0028",
+    "source": {
+      "type": "event",
+      "id": "han-dynasty"
+    },
+    "target": {
+      "type": "event",
+      "id": "qin-unification"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "han-dynasty",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0029",
+    "source": {
+      "type": "event",
+      "id": "han-dynasty"
+    },
+    "target": {
+      "type": "event",
+      "id": "silk-road"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "han-dynasty",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0030",
+    "source": {
+      "type": "event",
+      "id": "han-dynasty"
+    },
+    "target": {
+      "type": "event",
+      "id": "silk-road"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "silk-road",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0031",
+    "source": {
+      "type": "event",
+      "id": "roman-empire"
+    },
+    "target": {
+      "type": "event",
+      "id": "silk-road"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "silk-road",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0032",
+    "source": {
+      "type": "event",
+      "id": "roman-empire"
+    },
+    "target": {
+      "type": "event",
+      "id": "rome-founding"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "roman-empire",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0033",
+    "source": {
+      "type": "event",
+      "id": "roman-empire"
+    },
+    "target": {
+      "type": "event",
+      "id": "silk-road"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "roman-empire",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0034",
+    "source": {
+      "type": "event",
+      "id": "fall-west-rome"
+    },
+    "target": {
+      "type": "event",
+      "id": "roman-empire"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "roman-empire",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0035",
+    "source": {
+      "type": "event",
+      "id": "roman-empire"
+    },
+    "target": {
+      "type": "event",
+      "id": "fall-west-rome"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "fall-west-rome",
+      "field": "causes"
+    }
+  },
+  {
+    "id": "relationship-0036",
+    "source": {
+      "type": "event",
+      "id": "fall-west-rome"
+    },
+    "target": {
+      "type": "event",
+      "id": "justinian-code"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "fall-west-rome",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0037",
+    "source": {
+      "type": "event",
+      "id": "fall-west-rome"
+    },
+    "target": {
+      "type": "event",
+      "id": "justinian-code"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "justinian-code",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0038",
+    "source": {
+      "type": "event",
+      "id": "printing-press"
+    },
+    "target": {
+      "type": "event",
+      "id": "woodblock-printing"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "woodblock-printing",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0039",
+    "source": {
+      "type": "event",
+      "id": "paper-west"
+    },
+    "target": {
+      "type": "event",
+      "id": "woodblock-printing"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "paper-west",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0040",
+    "source": {
+      "type": "event",
+      "id": "mongol-empire"
+    },
+    "target": {
+      "type": "event",
+      "id": "silk-road"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "mongol-empire",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0041",
+    "source": {
+      "type": "event",
+      "id": "printing-press"
+    },
+    "target": {
+      "type": "event",
+      "id": "reformation"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "printing-press",
+      "field": "consequences"
+    }
+  },
+  {
+    "id": "relationship-0042",
+    "source": {
+      "type": "event",
+      "id": "printing-press"
+    },
+    "target": {
+      "type": "event",
+      "id": "scientific-revolution"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "printing-press",
+      "field": "consequences"
+    }
+  },
+  {
+    "id": "relationship-0043",
+    "source": {
+      "type": "event",
+      "id": "printing-press"
+    },
+    "target": {
+      "type": "event",
+      "id": "writing"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "printing-press",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0044",
+    "source": {
+      "type": "event",
+      "id": "printing-press"
+    },
+    "target": {
+      "type": "event",
+      "id": "woodblock-printing"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "printing-press",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0045",
+    "source": {
+      "type": "event",
+      "id": "printing-press"
+    },
+    "target": {
+      "type": "event",
+      "id": "reformation"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "reformation",
+      "field": "causes"
+    }
+  },
+  {
+    "id": "relationship-0046",
+    "source": {
+      "type": "event",
+      "id": "printing-press"
+    },
+    "target": {
+      "type": "event",
+      "id": "scientific-revolution"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "scientific-revolution",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0047",
+    "source": {
+      "type": "event",
+      "id": "principia"
+    },
+    "target": {
+      "type": "event",
+      "id": "scientific-revolution"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "principia",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0048",
+    "source": {
+      "type": "event",
+      "id": "industrial"
+    },
+    "target": {
+      "type": "event",
+      "id": "steam-locomotive"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "steam-locomotive",
+      "field": "causes"
+    }
+  },
+  {
+    "id": "relationship-0049",
+    "source": {
+      "type": "event",
+      "id": "world-wars"
+    },
+    "target": {
+      "type": "event",
+      "id": "un-founded"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "world-wars",
+      "field": "consequences"
+    }
+  },
+  {
+    "id": "relationship-0050",
+    "source": {
+      "type": "event",
+      "id": "russian-revolution"
+    },
+    "target": {
+      "type": "event",
+      "id": "world-wars"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "world-wars",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0051",
+    "source": {
+      "type": "event",
+      "id": "russian-revolution"
+    },
+    "target": {
+      "type": "event",
+      "id": "world-wars"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "russian-revolution",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0052",
+    "source": {
+      "type": "event",
+      "id": "world-wars"
+    },
+    "target": {
+      "type": "event",
+      "id": "un-founded"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "un-founded",
+      "field": "causes"
+    }
+  },
+  {
+    "id": "relationship-0053",
+    "source": {
+      "type": "event",
+      "id": "arpanet"
+    },
+    "target": {
+      "type": "event",
+      "id": "internet"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "arpanet",
+      "field": "consequences"
+    }
+  },
+  {
+    "id": "relationship-0054",
+    "source": {
+      "type": "event",
+      "id": "arpanet"
+    },
+    "target": {
+      "type": "event",
+      "id": "internet"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "internet",
+      "field": "causes"
+    }
+  },
+  {
+    "id": "relationship-0055",
+    "source": {
+      "type": "event",
+      "id": "internet"
+    },
+    "target": {
+      "type": "event",
+      "id": "world-wide-web"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "internet",
+      "field": "consequences"
+    }
+  },
+  {
+    "id": "relationship-0056",
+    "source": {
+      "type": "event",
+      "id": "internet"
+    },
+    "target": {
+      "type": "event",
+      "id": "world-wide-web"
+    },
+    "type": "CAUSES",
+    "provenance": {
+      "eventId": "world-wide-web",
+      "field": "causes"
+    }
+  },
+  {
+    "id": "relationship-0057",
+    "source": {
+      "type": "event",
+      "id": "artificial-intelligence"
+    },
+    "target": {
+      "type": "event",
+      "id": "computer-revolution"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "artificial-intelligence",
+      "field": "relatedEvents"
+    }
+  },
+  {
+    "id": "relationship-0058",
+    "source": {
+      "type": "event",
+      "id": "artificial-intelligence"
+    },
+    "target": {
+      "type": "event",
+      "id": "world-wide-web"
+    },
+    "type": "RELATED_TO",
+    "provenance": {
+      "eventId": "artificial-intelligence",
+      "field": "relatedEvents"
+    }
+  }
+]

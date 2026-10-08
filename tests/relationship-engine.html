@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEON relationship engine checks</title>
+    <style>
+      body { max-width: 70rem; margin: 3rem auto; padding: 0 1.5rem; background: #090a09; color: #e9e5dc; font: 16px/1.6 system-ui, sans-serif; }
+      h1 { color: #c38c58; }
+      li[data-status="fail"] { color: #ff9b82; }
+      #summary { font-weight: 700; }
+    </style>
+    <script type="module" src="./relationship-engine.test.js"></script>
+  </head>
+  <body>
+    <h1>Relationship engine checks</h1>
+    <p id="summary" aria-live="polite">Running…</p>
+    <ol id="results"></ol>
+    <p><a href="../index.html">Open AEON timeline</a></p>
+  </body>
+</html>

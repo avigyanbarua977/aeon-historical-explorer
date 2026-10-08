@@ -1,0 +1,16 @@
+name = "aeon-historical-explorer-fake-provider-test"
+main = "phase4b-fake-worker.js"
+compatibility_date = "2026-10-08"
+
+[assets]
+directory = "../data"
+binding = "ASSETS"
+
+[vars]
+ALLOWED_ORIGINS = "http://localhost:8000,http://127.0.0.1:8000"
+OPENAI_MODEL = "fake-provider-test"
+
+[[ratelimits]]
+name = "AI_LIMITER"
+namespace_id = "4102"
+simple = { limit = 6, period = 60 }

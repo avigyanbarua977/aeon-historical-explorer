@@ -1,0 +1,8 @@
+[
+  { "id": "prehistory", "title": "Deep Time", "startYear": -2500000, "endYear": -8000 },
+  { "id": "ancient", "title": "The Ancient World", "startYear": -7999, "endYear": 499 },
+  { "id": "medieval", "title": "The Medieval World", "startYear": 500, "endYear": 1449 },
+  { "id": "early-modern", "title": "A Changing World", "startYear": 1450, "endYear": 1759 },
+  { "id": "modern", "title": "The Modern Age", "startYear": 1760, "endYear": 1944 },
+  { "id": "contemporary", "title": "The Contemporary Age", "startYear": 1945, "endYear": 2026 }
+]

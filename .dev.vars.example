@@ -1,0 +1,2 @@
+# Copy this file to .dev.vars locally and supply a key only in that ignored file.
+OPENAI_API_KEY=

@@ -1,0 +1,30 @@
+name = "aeon-historical-explorer-api"
+main = "server/worker.js"
+compatibility_date = "2026-10-08"
+
+[assets]
+directory = "./data"
+binding = "ASSETS"
+
+[vars]
+ALLOWED_ORIGINS = "http://localhost:8000,http://127.0.0.1:8000"
+OPENAI_MODEL = "gpt-4.1-mini"
+
+[[ratelimits]]
+name = "AI_LIMITER"
+namespace_id = "1001"
+simple = { limit = 6, period = 60 }
+
+# Replace this origin and namespace ID before production deployment. Do not add localhost to production.
+[env.production.vars]
+ALLOWED_ORIGINS = "https://REPLACE-WITH-GITHUB-PAGES-ORIGIN"
+OPENAI_MODEL = "gpt-4.1-mini"
+
+[env.production.assets]
+directory = "./data"
+binding = "ASSETS"
+
+[[env.production.ratelimits]]
+name = "AI_LIMITER"
+namespace_id = "1002"
+simple = { limit = 6, period = 60 }

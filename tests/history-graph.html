@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEON history graph checks</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    <style>
+      body { max-width: 80rem; margin: 2rem auto; padding: 0 1rem; background: #090a09; color: #e9e5dc; font: 15px/1.6 system-ui, sans-serif; }
+      h1, h2 { color: #c38c58; }
+      #test-summary { font-weight: 700; }
+      #test-results [data-status="fail"] { color: #ff9b82; }
+      #history-graph-view { display: block; }
+      #graph-svg-stage { min-height: 400px; height: 50vh; }
+    </style>
+    <script type="module" src="./history-graph.test.js"></script>
+  </head>
+  <body>
+    <h1>Phase 3B History Graph checks</h1>
+    <p id="test-summary" aria-live="polite">Running tests…</p>
+    <ol id="test-results"></ol>
+    <section class="history-graph" id="history-graph-view" aria-labelledby="history-graph-heading">
+      <header class="graph-header">
+        <div><p class="eyebrow">Test fixture</p><h2 id="history-graph-heading" tabindex="-1">Graph fixture</h2><p>Centered on <strong id="graph-root-label"></strong></p></div>
+        <button id="graph-return-timeline" type="button">Return</button>
+      </header>
+      <div class="graph-controls">
+        <fieldset class="graph-filters">
+          <legend>Show relationships</legend>
+          <label><input type="checkbox" data-relationship-filter value="CAUSES" checked> Causes</label>
+          <label><input type="checkbox" data-relationship-filter value="RELATED_TO" checked> Related</label>
+        </fieldset>
+        <label for="graph-depth">Neighborhood
+          <select id="graph-depth"><option value="1">Nearby</option><option value="2">Expanded</option><option value="3">Wider context</option></select>
+        </label>
+        <div><button id="graph-zoom-in" type="button">+</button><button id="graph-zoom-out" type="button">−</button><button id="graph-zoom-reset" type="button">Reset</button></div>
+      </div>
+      <p id="graph-status" aria-live="polite"></p>
+      <div class="graph-error" id="graph-error" role="alert" hidden><p data-graph-error-message></p><button id="graph-retry" type="button">Retry</button></div>
+      <div class="graph-stage" id="graph-svg-stage">
+        <div class="graph-svg-wrap"><div class="graph-zones"><span>Causal precursors</span><span>Causal outcomes</span><span>Contextual links</span></div>
+          <svg id="history-graph-svg" role="group" aria-labelledby="history-graph-heading" aria-describedby="graph-instructions">
+            <title>Test graph</title><desc id="graph-instructions">Test graph interactions.</desc>
+            <defs><marker id="graph-cause-arrow"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+            <g id="graph-world"><g id="graph-edges"></g><g id="graph-nodes"></g></g>
+          </svg>
+        </div>
+        <div class="graph-mobile-list" id="graph-mobile-list"></div>
+        <div class="graph-node-actions" id="graph-node-actions" hidden><button id="graph-expand" type="button" aria-expanded="false">Expand</button><button id="graph-set-root" type="button">Make root</button></div>
+      </div>
+      <p id="graph-edge-info" aria-live="polite" hidden></p><p id="graph-announcement" aria-live="polite"></p>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEON Historical Explorer tests</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    <style>
+      body { padding: 20px; }
+      #test-results { display: grid; gap: 6px; }
+      [data-status="pass"] { color: #8bba8d; }
+      [data-status="fail"] { color: #e58a70; }
+      #history-graph-heading, #explorer-heading { margin: 0; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Historical Explorer checks</h1>
+      <p id="test-summary" role="status">Running…</p>
+      <ol id="test-results"></ol>
+      <button id="open-explorer" type="button">Ask AEON</button>
+      <section class="historical-explorer" id="historical-explorer" aria-labelledby="explorer-heading" hidden>
+        <header class="explorer-header"><div><h2 id="explorer-heading" tabindex="-1">Ask AEON</h2></div><button id="explorer-return" type="button">Return</button></header>
+        <form class="explorer-form" id="explorer-form"><label for="explorer-question">Question</label><div class="explorer-input-row"><input id="explorer-question" name="question" required><button class="explorer-submit" type="submit">Explore</button></div></form>
+        <div class="explorer-examples"><button type="button" data-explorer-example="What came after the printing press?">Example</button></div>
+        <p class="explorer-status" id="explorer-status" role="status" aria-live="polite"></p>
+        <article class="explorer-result" id="explorer-result" hidden><p id="explorer-result-type"></p><h3 id="explorer-result-heading"></h3><p id="explorer-short-answer"></p><div class="explorer-statements" id="explorer-statements" hidden></div><ol id="explorer-path" hidden></ol><div id="explorer-evidence"></div><div><button id="explorer-open-graph" type="button" hidden>Explore Connection</button><p id="explorer-scope"></p></div></article>
+      </section>
+      <div id="timeline-return-target" hidden></div>
+    </main>
+    <script type="module" src="./historical-explorer.test.js"></script>
+  </body>
+</html>

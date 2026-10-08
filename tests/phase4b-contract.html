@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEON Phase 4B Contract Tests</title>
+    <style>
+      body { max-width: 900px; margin: 3rem auto; padding: 0 1.25rem; background: #090a09; color: #e9e5dc; font: 16px/1.6 system-ui, sans-serif; }
+      h1 { font-family: Georgia, serif; font-weight: 400; }
+      #test-summary { color: #c38c58; }
+      [data-status="fail"] { color: #ff9b8f; }
+      #historical-explorer { margin-top: 2rem; padding: 1.5rem 0; border-top: 1px solid #383831; }
+      .explorer-statements:not([hidden]) { display: grid; gap: 1rem; }
+      button, input { min-height: 42px; margin: 4px; padding: 8px; }
+      :focus-visible { outline: 2px solid #c38c58; outline-offset: 3px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Phase 4B contract test harness</h1>
+      <p id="test-summary" role="status">Running deterministic checks…</p>
+      <ol id="test-results"></ol>
+      <button id="open-explorer" type="button">Ask AEON</button>
+      <section id="historical-explorer" hidden aria-labelledby="explorer-heading">
+        <header><h2 id="explorer-heading" tabindex="-1">Ask AEON</h2><button id="explorer-return" type="button">Return</button></header>
+        <form id="explorer-form" aria-describedby="explorer-privacy-note">
+          <label for="explorer-question">Question</label>
+          <p id="explorer-privacy-note">Eligible explanations send the query and selected public AEON evidence to the configured provider.</p>
+          <div><input id="explorer-question" name="question" maxlength="240" required><button class="explorer-submit" type="submit">Explore</button></div>
+        </form>
+        <div class="explorer-examples"><button type="button" data-explorer-example="How did ARPANET lead to the World Wide Web?">Example</button></div>
+        <p id="explorer-status" role="status" aria-live="polite"></p>
+        <article id="explorer-result" hidden aria-labelledby="explorer-result-heading">
+          <p id="explorer-result-type"></p><h3 id="explorer-result-heading"></h3><p id="explorer-short-answer"></p>
+          <div id="explorer-statements" hidden></div><ol id="explorer-path" hidden></ol><div id="explorer-evidence"></div>
+          <button id="explorer-open-graph" type="button" hidden>Explore connection</button><p id="explorer-scope"></p>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="./phase4b-contract.test.js"></script>
+  </body>
+</html>

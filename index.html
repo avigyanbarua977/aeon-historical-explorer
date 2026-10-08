@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#090a09">
+    <meta name="description" content="A cinematic journey through the story of humanity, from the first fire to artificial intelligence.">
+    <meta name="aeon-api-endpoint" content="">
+    <title>AEON — The Story of Humanity</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <main>
+      <section class="landing" id="landing" aria-labelledby="hero-title">
+        <div class="atmosphere" aria-hidden="true"></div>
+        <header class="site-mark"><a href="#landing" aria-label="AEON home">A<span>E</span>ON</a></header>
+        <div class="hero-content">
+          <p class="eyebrow hero-eyebrow">An atlas of us</p>
+          <h1 id="hero-title">AEON</h1>
+          <p class="hero-subtitle">THE STORY OF HUMANITY</p>
+          <p class="hero-description">From the first fire to artificial intelligence.</p>
+          <p class="hero-duration">2.5 MILLION YEARS OF HUMAN HISTORY</p>
+          <button class="begin-button" id="begin-journey" type="button">
+            <span>Begin the journey</span><span class="button-arrow" aria-hidden="true">↗</span>
+          </button>
+          <p class="app-error" id="app-error" role="alert" hidden></p>
+        </div>
+        <p class="hero-footnote">A living timeline of the human story</p>
+        <span class="hero-index" aria-hidden="true">DEEP TIME — 2026</span>
+      </section>
+
+      <section class="timeline-view" id="timeline-view" aria-labelledby="timeline-heading" hidden>
+        <header class="timeline-header">
+          <a class="timeline-wordmark" href="#landing" aria-label="Return to AEON landing" tabindex="-1">AEON</a>
+          <p class="timeline-kicker">The human story, in moments</p>
+          <button class="back-button" id="return-home" type="button">Return to beginning <span aria-hidden="true">↗</span></button>
+        </header>
+        <div id="timeline-exploration">
+          <div class="timeline-intro">
+            <p class="eyebrow">A journey through time</p>
+            <h2 id="timeline-heading" tabindex="-1">One thing led<br>to another.</h2>
+            <p class="timeline-help">Select a moment to enter its story.</p>
+            <button class="ask-aeon-entry" id="open-explorer" type="button">Ask AEON <span aria-hidden="true">↗</span></button>
+          </div>
+          <nav class="era-navigation" id="era-navigation" aria-label="Navigate historical eras"></nav>
+          <p class="timeline-status" id="timeline-status" aria-live="polite">Loading historical moments…</p>
+          <div class="timeline-shell" id="timeline-shell">
+            <div class="timeline-track" id="timeline-track" role="group" aria-label="Human history timeline"></div>
+          </div>
+        </div>
+        <section class="historical-explorer" id="historical-explorer" aria-labelledby="explorer-heading" hidden>
+          <header class="explorer-header">
+            <div>
+              <p class="eyebrow">A question across time</p>
+              <h2 id="explorer-heading" tabindex="-1">Ask AEON</h2>
+              <p class="explorer-intro">Explore the history recorded in AEON’s milestones and connections.</p>
+            </div>
+            <button class="explorer-return" id="explorer-return" type="button">Return to timeline <span aria-hidden="true">↗</span></button>
+          </header>
+          <form class="explorer-form" id="explorer-form" aria-describedby="explorer-privacy-note">
+            <label for="explorer-question">Your historical question</label>
+            <p class="explorer-privacy-note" id="explorer-privacy-note">For some connection questions, an optional AI explanation sends your question and selected public AEON evidence to AEON's server and OpenAI. Provider data handling follows its terms.</p>
+            <div class="explorer-input-row">
+              <input id="explorer-question" name="question" type="search" maxlength="240" autocomplete="off" placeholder="Ask about an event, era, or connection…" required>
+              <button class="explorer-submit" type="submit">Explore <span aria-hidden="true">↗</span></button>
+            </div>
+          </form>
+          <div class="explorer-examples" aria-label="Example questions">
+            <span>Begin with</span>
+            <button type="button" data-explorer-example="What caused the Western Roman Empire?">What caused Rome’s western empire to end?</button>
+            <button type="button" data-explorer-example="What came after the printing press?">What came after the printing press?</button>
+            <button type="button" data-explorer-example="How did the internet lead to the World Wide Web?">Trace the Internet to the Web</button>
+          </div>
+          <p class="explorer-status" id="explorer-status" role="status" aria-live="polite"></p>
+          <article class="explorer-result" id="explorer-result" aria-labelledby="explorer-result-heading" aria-live="polite" hidden>
+            <p class="eyebrow" id="explorer-result-type"></p>
+            <h3 id="explorer-result-heading"></h3>
+            <p class="explorer-short-answer" id="explorer-short-answer"></p>
+            <div class="explorer-statements" id="explorer-statements" hidden></div>
+            <ol class="explorer-path" id="explorer-path" aria-label="Relationship path" hidden></ol>
+            <div class="explorer-evidence" id="explorer-evidence"></div>
+            <div class="explorer-actions">
+              <button class="explorer-graph-action" id="explorer-open-graph" type="button" hidden>Explore connection in graph <span aria-hidden="true">↗</span></button>
+              <p class="explorer-scope" id="explorer-scope"></p>
+            </div>
+          </article>
+        </section>
+        <section class="history-graph" id="history-graph-view" aria-labelledby="history-graph-heading" hidden>
+          <header class="graph-header">
+            <div>
+              <p class="eyebrow">A history of connections</p>
+              <h2 id="history-graph-heading" tabindex="-1">Explore the network</h2>
+              <p class="graph-root-caption">Centered on <strong id="graph-root-label"></strong></p>
+            </div>
+            <button class="graph-return" id="graph-return-timeline" type="button">Return to timeline <span aria-hidden="true">↗</span></button>
+          </header>
+          <div class="graph-controls" aria-label="History graph controls">
+            <fieldset class="graph-filters">
+              <legend>Show relationships</legend>
+              <label><input type="checkbox" data-relationship-filter value="CAUSES" checked> Causes</label>
+              <label><input type="checkbox" data-relationship-filter value="RELATED_TO" checked> Related</label>
+            </fieldset>
+            <label class="graph-depth-control" for="graph-depth">Neighborhood
+              <select id="graph-depth">
+                <option value="1">Nearby</option>
+                <option value="2">Expanded</option>
+                <option value="3">Wider context</option>
+              </select>
+            </label>
+            <div class="graph-zoom-controls" role="group" aria-label="Graph zoom">
+              <button id="graph-zoom-in" type="button" aria-label="Zoom in">+</button>
+              <button id="graph-zoom-out" type="button" aria-label="Zoom out">−</button>
+              <button id="graph-zoom-reset" type="button" aria-label="Reset graph view">Reset</button>
+            </div>
+          </div>
+          <p class="graph-status" id="graph-status" aria-live="polite"></p>
+          <div class="graph-error" id="graph-error" role="alert" hidden>
+            <p data-graph-error-message></p>
+            <button id="graph-retry" type="button">Retry connections</button>
+            <p>You can return to the timeline while connections are unavailable.</p>
+          </div>
+          <div class="graph-stage" id="graph-svg-stage">
+            <div class="graph-svg-wrap" id="graph-svg-wrap">
+              <div class="graph-zones" aria-hidden="true">
+                <span class="graph-zone graph-zone--precursors">Causal precursors</span>
+                <span class="graph-zone graph-zone--outcomes">Causal outcomes</span>
+                <span class="graph-zone graph-zone--context">Contextual links</span>
+              </div>
+              <svg id="history-graph-svg" role="group" aria-labelledby="history-graph-heading" aria-describedby="graph-instructions">
+                <desc id="graph-instructions">Select a node to view its event details. Use arrow keys to move between nearby nodes. Use the controls to expand a branch, change the root, or adjust the view.</desc>
+                <defs>
+                  <marker id="graph-cause-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                  </marker>
+                </defs>
+                <g id="graph-world">
+                  <g id="graph-edges"></g>
+                  <g id="graph-nodes"></g>
+                </g>
+              </svg>
+            </div>
+            <div class="graph-mobile-list" id="graph-mobile-list" aria-label="Connected events"></div>
+            <div class="graph-node-actions" id="graph-node-actions" hidden>
+              <button id="graph-expand" type="button" aria-expanded="false">Expand connections</button>
+              <button id="graph-set-root" type="button">Make this the center</button>
+            </div>
+          </div>
+          <p class="graph-edge-info" id="graph-edge-info" aria-live="polite" hidden></p>
+          <p class="graph-legend"><span class="legend-causes">CAUSES →</span> Contributes to <span class="legend-related">RELATED TO ···</span> Contextual connection</p>
+          <p class="sr-only" id="graph-announcement" aria-live="polite"></p>
+        </section>
+        <aside class="event-detail" id="event-detail" aria-labelledby="detail-title" aria-live="polite" hidden>
+          <div class="detail-heading">
+            <div class="detail-meta"><span id="detail-year"></span><span class="detail-rule"></span><span id="detail-era"></span></div>
+            <button class="detail-close" id="detail-close" type="button" aria-label="Close event details">Close <span aria-hidden="true">×</span></button>
+          </div>
+          <h3 id="detail-title"></h3>
+          <p class="detail-description" id="detail-description"></p>
+          <p class="detail-importance"><span>Historical significance</span><strong id="detail-importance"></strong></p>
+          <button class="explore-connections" id="open-history-graph" type="button" hidden>Explore connections <span aria-hidden="true">↗</span></button>
+          <div class="relationship-section" id="relationship-section" hidden>
+            <h4>In relation</h4>
+            <ul id="relationship-list"></ul>
+          </div>
+        </aside>
+        <footer class="timeline-footer"><span>AEON — THE STORY OF HUMANITY</span><span>FROM DEEP TIME TO 2026</span></footer>
+      </section>
+    </main>
+  </body>
+</html>
