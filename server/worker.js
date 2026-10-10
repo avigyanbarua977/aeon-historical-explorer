@@ -1,6 +1,7 @@
 import { buildEvidencePacket, EVIDENCE_LIMITS, loadCanonicalDataset } from './evidence.js';
 import { buildGroundingPrompt } from './prompt.js';
 import { generateGroundedExplanation } from './provider-adapter.js';
+import { getSafeProviderDiagnostic } from './providers/openai.js';
 import { validateProviderAnswer } from './answer-schema.js';
 import { getDatasetVersion } from '../js/dataset-version.js';
 import { interpretQuery } from '../js/query-interpreter.js';
@@ -174,7 +175,8 @@ export async function handleWorkerRequest(request, env = {}, dependencies = {}) 
     const validation = validateProviderAnswer(answer, { events: dataset.events, graphData, deterministicAnswer });
     if (!validation.valid) return errorResponse('GROUNDING_FAILED', 502, headers);
     return jsonResponse({ apiVersion: API_VERSION, datasetVersion, answer }, 200, headers);
-  } catch {
+  } catch (error) {
+    console.warn('AEON_PROVIDER_FAILURE', JSON.stringify(getSafeProviderDiagnostic(error, controller.signal.aborted)));
     return errorResponse(controller.signal.aborted ? 'PROVIDER_TIMEOUT' : 'PROVIDER_UNAVAILABLE', 503, headers);
   } finally {
     clearTimeout(timeout);

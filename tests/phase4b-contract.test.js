@@ -243,7 +243,7 @@ await checkAsync('OpenAI adapter rejects malformed JSON without external network
       },
     });
     throw new Error('Malformed provider output was accepted.');
-  } catch (error) { assert(fetchCalled && error instanceof SyntaxError, 'Malformed provider JSON did not fail closed.'); }
+  } catch (error) { assert(fetchCalled && error.name === 'OpenAIProviderError' && error.diagnostic.category === 'provider_response_invalid', 'Malformed provider JSON did not fail closed with a safe diagnostic.'); }
 });
 await checkAsync('provider network and rate-limit failures become safe endpoint errors', async () => {
   for (const providerStatus of [429, 500]) {
@@ -260,6 +260,54 @@ await checkAsync('provider network and rate-limit failures become safe endpoint 
     generateGroundedExplanation: (input, options) => generateGroundedExplanation(input, { ...options, fetchImpl: async () => { throw new Error('network detail'); } }),
   });
   assert(response.status === 503, 'Network failure did not safely fail.');
+});
+await checkAsync('provider diagnostics classify failures without exposing response text or request data', async () => {
+  const cases = [
+    [401, { type: 'authentication_error', code: 'invalid_api_key', message: 'PRIVATE_PROVIDER_MESSAGE' }, 'authentication'],
+    [403, { type: 'permission_error', code: 'permission_denied', message: 'PRIVATE_PROVIDER_MESSAGE' }, 'permission_or_policy'],
+    [403, { type: 'permission_error', code: 'model_access_denied', param: 'model', message: 'PRIVATE_PROVIDER_MESSAGE' }, 'model_access_or_configuration'],
+    [429, { type: 'insufficient_quota', code: 'insufficient_quota', message: 'PRIVATE_PROVIDER_MESSAGE' }, 'quota_or_billing'],
+    [429, { type: 'rate_limit_error', code: 'rate_limit_exceeded', message: 'PRIVATE_PROVIDER_MESSAGE' }, 'rate_limit'],
+    [404, { type: 'invalid_request_error', code: 'model_not_found', param: 'model', message: 'PRIVATE_PROVIDER_MESSAGE' }, 'model_access_or_configuration'],
+    [400, { type: 'invalid_request_error', code: 'invalid_api_key', param: 'PRIVATE_QUERY_PARAM', message: 'PRIVATE_PROVIDER_MESSAGE' }, 'request_rejected'],
+    [503, { type: 'service_unavailable_error', code: 'server_is_overloaded', message: 'PRIVATE_PROVIDER_MESSAGE' }, 'provider_server'],
+  ];
+  const logs = [];
+  const previousWarn = console.warn;
+  console.warn = (...values) => logs.push(values.join(' '));
+  try {
+    for (const [status, providerError, expectedCategory] of cases) {
+      const response = await callWorker(payload, {}, {
+        generateGroundedExplanation: (input, options) => generateGroundedExplanation(input, {
+          ...options,
+          fetchImpl: async () => new Response(JSON.stringify({ error: providerError }), { status }),
+        }),
+      });
+      const publicBody = await response.text();
+      assert(response.status === 503 && publicBody.includes('PROVIDER_UNAVAILABLE')
+        && !publicBody.includes('PRIVATE_PROVIDER_MESSAGE'), 'A provider failure was not kept generic for users.');
+      assert(logs.at(-1).includes(`"category":"${expectedCategory}"`) && logs.at(-1).includes(`"status":${status}`), 'Safe provider category or status was not logged.');
+    }
+    const networkResponse = await callWorker(payload, {}, {
+      generateGroundedExplanation: (input, options) => generateGroundedExplanation(input, {
+        ...options,
+        fetchImpl: async () => { throw new Error('PRIVATE_NETWORK_MESSAGE'); },
+      }),
+    });
+    await networkResponse.text();
+    assert(logs.at(-1).includes('"category":"connectivity"'), 'Network failure was not classified safely.');
+    const configurationResponse = await callWorker(payload, {}, {
+      generateGroundedExplanation: (input, options) => generateGroundedExplanation(input, { ...options, env: { OPENAI_MODEL: 'test-model' } }),
+    });
+    await configurationResponse.text();
+    assert(logs.at(-1).includes('"category":"configuration"') && logs.at(-1).includes('OPENAI_API_KEY'), 'Missing provider configuration was not identified safely.');
+  } finally {
+    console.warn = previousWarn;
+  }
+  const serializedLogs = logs.join('\n');
+  assert(!serializedLogs.includes('PRIVATE_PROVIDER_MESSAGE') && !serializedLogs.includes('PRIVATE_NETWORK_MESSAGE')
+    && !serializedLogs.includes('PRIVATE_QUERY_PARAM') && !serializedLogs.includes(payload.query)
+    && !serializedLogs.includes(env.OPENAI_API_KEY), 'Provider diagnostics leaked response or request data.');
 });
 await checkAsync('excessive evidence counts are rejected before provider invocation', async () => {
   let calls = 0;
